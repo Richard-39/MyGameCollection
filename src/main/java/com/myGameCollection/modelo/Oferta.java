@@ -47,7 +47,7 @@ public class Oferta {
 	@Override
 	public String toString() {
 		return "Oferta [idOferta=" + idOferta + ", precio=" + precio + ", nombreVendedor=" + nombreVendedor
-				+ ", enlaceVenta=" + enlaceVenta + "]";
+				+ ", enlaceVenta=" + enlaceVenta + ", juego=" + juego.getNombre() +"]";
 	}
 
 }
