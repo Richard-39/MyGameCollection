@@ -61,14 +61,31 @@ public class JuegoServicioImp implements IJuego {
 
 	@Override
 	public JuegoVo save(Juego juego) {
-		// TODO Auto-generated method stub
-		return null;
+		JuegoVo juegoVo = new JuegoVo(new ArrayList<Juego>(), "Ha habido un error", "104");
+		try {
+			Juego juegoGuardado = juegoDao.save(juego);
+			juegoVo.getJuegos().add(juegoGuardado);
+			juegoVo.setMensaje(String.format("Se han guardado %s correctamente", juegoGuardado.getNombre()));
+			juegoVo.setCodigo("0");
+		} catch (Exception e) {
+			log.info("Se ha encontrado un error en JuegoServicioImp : save -> " + e );
+		}
+		return juegoVo;
 	}
 
 	@Override
 	public JuegoVo delete(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		JuegoVo juegoVo = new JuegoVo(new ArrayList<Juego>(), "Ha habido un error", "105");
+		try {
+			Juego juegoBorrado = juegoDao.findById(id).get();
+			juegoDao.deleteById(id);
+			juegoVo.getJuegos().add(juegoBorrado);
+			juegoVo.setMensaje(String.format("Se han borrado %s correctamente", juegoBorrado.getNombre()));
+			juegoVo.setCodigo("0");
+		} catch (Exception e) {
+			log.info("Se ha encontrado un error en JuegoServicioImp : delete -> " + e );
+		}
+		return juegoVo;
 	}
 
 }
