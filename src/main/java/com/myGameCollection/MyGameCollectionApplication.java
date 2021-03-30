@@ -50,6 +50,8 @@ public class MyGameCollectionApplication {
 //		nuevaOferta.setPrecio(13000);
 //		ofertaDao.save(nuevaOferta);
 		
+//		System.out.println(juegoDao.findByNombreLike("%"+"dance"+"%"));
+		
 	}
 
 }

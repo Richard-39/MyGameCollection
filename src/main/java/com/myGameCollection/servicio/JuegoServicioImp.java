@@ -24,7 +24,7 @@ public class JuegoServicioImp implements IJuego {
 		JuegoVo juegoVo = new JuegoVo(new ArrayList<Juego>(), "Ha habido un error", "101");
 		try {
 			juegoVo.setJuegos(juegoDao.findAll());
-			juegoVo.setMensaje(String.format("Se han encontrado %f juegos", juegoVo.getJuegos().size()));
+			juegoVo.setMensaje(String.format("Se han encontrado %d juegos", juegoVo.getJuegos().size()));
 			juegoVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en JuegoServicioImp : findAll -> " + e );
@@ -36,8 +36,8 @@ public class JuegoServicioImp implements IJuego {
 	public JuegoVo findByName(String name) {
 		JuegoVo juegoVo = new JuegoVo(new ArrayList<Juego>(), "Ha habido un error", "102");
 		try {
-			juegoVo.setJuegos(juegoDao.findAll());
-			juegoVo.setMensaje(String.format("Se han encontrado %f juegos", juegoVo.getJuegos().size()));
+			juegoVo.setJuegos(juegoDao.findByNombreLike(name));
+			juegoVo.setMensaje(String.format("Se han encontrado %d juegos", juegoVo.getJuegos().size()));
 			juegoVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en JuegoServicioImp : findByName -> " + e );

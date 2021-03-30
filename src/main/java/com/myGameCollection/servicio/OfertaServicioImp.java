@@ -24,7 +24,7 @@ public class OfertaServicioImp implements IOferta {
 		OfertaVo ofertaVo = new OfertaVo(new ArrayList<Oferta>(), "Ha habido un error", "101");
 		try {
 			ofertaVo.setOfertas(ofertaDao.findAll());
-			ofertaVo.setMensaje(String.format("Se han encontrado %f ofertas", ofertaVo.getOfertas().size()));
+			ofertaVo.setMensaje(String.format("Se han encontrado %d ofertas", ofertaVo.getOfertas().size()));
 			ofertaVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en OfertaServicioImp : findAll -> " + e );
@@ -37,7 +37,7 @@ public class OfertaServicioImp implements IOferta {
 		OfertaVo ofertaVo = new OfertaVo(new ArrayList<Oferta>(), "Ha habido un error", "102");
 		try {
 			ofertaVo.setOfertas(ofertaDao.findAll());
-			ofertaVo.setMensaje(String.format("Se han encontrado %f ofertas", ofertaVo.getOfertas().size()));
+			ofertaVo.setMensaje(String.format("Se han encontrado %d ofertas", ofertaVo.getOfertas().size()));
 			ofertaVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en OfertaServicioImp : findByGame -> " + e );
